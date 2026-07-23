@@ -3,30 +3,51 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>사과 게임 - Apple Number Game</title>
-    <link rel="stylesheet" href="styles.css">
+    <title>Game</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
+            background: #111827;
+            color: #ffffff;
+            min-height: 100vh;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            padding: 24px;
+        }
+
+        .wrap {
+            text-align: center;
+        }
+
+        h1 {
+            margin-bottom: 10px;
+        }
+
+        .game-link {
+            display: inline-block;
+            margin-top: 10px;
+            color: #93c5fd;
+            font-size: 22px;
+            font-weight: 700;
+            text-decoration: none;
+        }
+
+        .game-link:hover {
+            text-decoration: underline;
+        }
+    </style>
 </head>
 <body>
-    <div id="game-container">
-        <div id="game-header">
-            <div class="info-panel">
-                <div id="selection-sum" class="info-item">
-                    <span class="info-label">선택 합계:</span>
-                    <span id="sum-value" class="info-value">0</span>
-                </div>
-                <div id="score-display" class="info-item">
-                    <span class="info-label">점수:</span>
-                    <span id="score-value" class="info-value">0</span>
-                </div>
-                <div id="moves-display" class="info-item">
-                    <span class="info-label">이동:</span>
-                    <span id="moves-value" class="info-value">0</span>
-                </div>
-            </div>
-            <button id="restart-button">🔄 다시 시작</button>
-        </div>
-        <div id="game-grid"></div>
-    </div>
-    <script src="game.js"></script>
+    <main class="wrap">
+        <h1>Game</h1>
+        <a class="game-link" href="/apple-game.html">사과게임</a>
+    </main>
 </body>
 </html>
