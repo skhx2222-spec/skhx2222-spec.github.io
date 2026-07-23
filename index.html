@@ -3,30 +3,68 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>사과 게임 - Apple Number Game</title>
-    <link rel="stylesheet" href="styles.css">
+    <title>메뉴 페이지</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            min-height: 100vh;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            padding: 20px;
+        }
+
+        .menu-container {
+            background: rgba(255, 255, 255, 0.95);
+            border-radius: 16px;
+            padding: 28px;
+            width: 100%;
+            max-width: 360px;
+            box-shadow: 0 16px 40px rgba(0, 0, 0, 0.25);
+            text-align: center;
+        }
+
+        h1 {
+            margin-bottom: 18px;
+            color: #333;
+            font-size: 26px;
+        }
+
+        .menu-links {
+            display: grid;
+            gap: 12px;
+        }
+
+        .menu-link {
+            display: block;
+            text-decoration: none;
+            font-weight: 600;
+            color: #fff;
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            border-radius: 10px;
+            padding: 14px 16px;
+            transition: transform 0.2s ease;
+        }
+
+        .menu-link:hover {
+            transform: translateY(-2px);
+        }
+    </style>
 </head>
 <body>
-    <div id="game-container">
-        <div id="game-header">
-            <div class="info-panel">
-                <div id="selection-sum" class="info-item">
-                    <span class="info-label">선택 합계:</span>
-                    <span id="sum-value" class="info-value">0</span>
-                </div>
-                <div id="score-display" class="info-item">
-                    <span class="info-label">점수:</span>
-                    <span id="score-value" class="info-value">0</span>
-                </div>
-                <div id="moves-display" class="info-item">
-                    <span class="info-label">이동:</span>
-                    <span id="moves-value" class="info-value">0</span>
-                </div>
-            </div>
-            <button id="restart-button">🔄 다시 시작</button>
+    <div class="menu-container">
+        <h1>메뉴</h1>
+        <div class="menu-links">
+            <a class="menu-link" href="game.html">Game</a>
+            <a class="menu-link" href="cartoon.html">Cartoon</a>
         </div>
-        <div id="game-grid"></div>
     </div>
-    <script src="game.js"></script>
 </body>
 </html>
