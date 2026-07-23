@@ -1,0 +1,87 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>치피, 어디 있니? - Cat 시리즈 #1</title>
+    <link rel="stylesheet" href="../../../shared.css">
+    <style>
+        .comic-viewer {
+            max-width: 860px;
+            margin: 0 auto;
+            text-align: center;
+        }
+        .comic-title {
+            font-size: 1.6rem;
+            font-weight: 700;
+            color: #fff;
+            margin-bottom: 8px;
+        }
+        .comic-subtitle {
+            font-size: 1rem;
+            color: rgba(255,255,255,0.7);
+            margin-bottom: 24px;
+        }
+        .comic-image {
+            width: 100%;
+            max-width: 860px;
+            border-radius: 12px;
+            box-shadow: 0 8px 40px rgba(0,0,0,0.4);
+            display: block;
+            margin: 0 auto;
+        }
+        .comic-nav {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin-top: 24px;
+            padding: 0 4px;
+        }
+        .comic-nav-btn {
+            padding: 10px 22px;
+            background: rgba(255,255,255,0.15);
+            color: white;
+            border-radius: 8px;
+            text-decoration: none;
+            font-weight: 600;
+            font-size: 14px;
+            transition: background 0.2s;
+        }
+        .comic-nav-btn:hover {
+            background: rgba(255,255,255,0.25);
+        }
+        .comic-nav-btn.disabled {
+            opacity: 0.3;
+            pointer-events: none;
+        }
+        .comic-counter {
+            color: rgba(255,255,255,0.8);
+            font-size: 14px;
+        }
+    </style>
+</head>
+<body>
+    <div class="page-wrapper">
+        <nav class="breadcrumb">
+            <a href="../../../">홈</a> <span>›</span>
+            <a href="../../">만화</a> <span>›</span>
+            <a href="../">Cat 시리즈</a> <span>›</span>
+            <span>#1</span>
+        </nav>
+        <div class="comic-viewer">
+            <div class="comic-title">치피, 어디 있니?</div>
+            <div class="comic-subtitle">Cat 시리즈 · 첫번째 이야기</div>
+            <img
+                class="comic-image"
+                src="https://github.com/user-attachments/assets/3a9ff729-5ff4-4e04-9308-cf69922a4f2f"
+                alt="치피, 어디 있니? - 치피와 함께하는 일상 만화"
+            >
+            <div class="comic-nav">
+                <span class="comic-nav-btn disabled">← 이전화</span>
+                <span class="comic-counter">1 / 1</span>
+                <span class="comic-nav-btn disabled">다음화 →</span>
+            </div>
+        </div>
+    </div>
+</body>
+</html>

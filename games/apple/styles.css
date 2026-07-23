@@ -1,0 +1,263 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+    min-height: 100vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: 20px;
+}
+
+#game-container {
+    background: rgba(255, 255, 255, 0.95);
+    border-radius: 20px;
+    padding: 30px;
+    box-shadow: 0 20px 60px rgba(0, 0, 0, 0.3);
+    max-width: 800px;
+    width: 100%;
+}
+
+#game-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 20px;
+    padding-bottom: 20px;
+    border-bottom: 3px solid #e0e0e0;
+}
+
+.info-panel {
+    display: flex;
+    gap: 20px;
+    flex-wrap: wrap;
+}
+
+.info-item {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    padding: 10px 15px;
+    background: linear-gradient(135deg, #f5f7fa 0%, #c3cfe2 100%);
+    border-radius: 10px;
+    min-width: 100px;
+}
+
+.info-label {
+    font-size: 12px;
+    color: #666;
+    font-weight: 600;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+    margin-bottom: 5px;
+}
+
+.info-value {
+    font-size: 24px;
+    font-weight: bold;
+    color: #333;
+}
+
+#selection-sum .info-value {
+    color: #667eea;
+    transition: all 0.3s ease;
+}
+
+#selection-sum.sum-valid .info-value {
+    color: #10b981;
+    transform: scale(1.1);
+}
+
+#selection-sum.sum-invalid .info-value {
+    color: #ef4444;
+}
+
+#restart-button {
+    padding: 12px 24px;
+    font-size: 16px;
+    font-weight: 600;
+    background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+    color: white;
+    border: none;
+    border-radius: 10px;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    box-shadow: 0 4px 15px rgba(102, 126, 234, 0.4);
+}
+
+#restart-button:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 6px 20px rgba(102, 126, 234, 0.6);
+}
+
+#restart-button:active {
+    transform: translateY(0);
+}
+
+#game-grid {
+    display: grid;
+    grid-template-columns: repeat(10, 1fr);
+    gap: 8px;
+    background: #f8f9fa;
+    padding: 15px;
+    border-radius: 15px;
+    user-select: none;
+}
+
+.apple {
+    aspect-ratio: 1;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    position: relative;
+    cursor: pointer;
+    border-radius: 50% 50% 48% 48%;
+    background: radial-gradient(circle at 35% 30%, #ff6b6b, #ee5a52, #d63031, #a71d2a);
+    box-shadow: 
+        inset -3px -3px 10px rgba(0, 0, 0, 0.3),
+        inset 3px 3px 10px rgba(255, 255, 255, 0.2),
+        0 4px 8px rgba(0, 0, 0, 0.2);
+    transition: all 0.2s ease;
+    border: 2px solid rgba(139, 0, 0, 0.3);
+}
+
+.apple::before {
+    content: '';
+    position: absolute;
+    top: -8px;
+    left: 50%;
+    transform: translateX(-50%);
+    width: 4px;
+    height: 12px;
+    background: linear-gradient(to bottom, #8b4513, #654321);
+    border-radius: 2px;
+    box-shadow: 1px 1px 2px rgba(0, 0, 0, 0.3);
+}
+
+.apple::after {
+    content: '';
+    position: absolute;
+    top: -6px;
+    left: 58%;
+    width: 12px;
+    height: 8px;
+    background: linear-gradient(135deg, #22c55e, #16a34a);
+    border-radius: 50% 0 50% 50%;
+    transform: rotate(20deg);
+    box-shadow: 1px 1px 2px rgba(0, 0, 0, 0.2);
+}
+
+.apple-number {
+    font-size: 20px;
+    font-weight: bold;
+    color: white;
+    text-shadow: 
+        1px 1px 2px rgba(0, 0, 0, 0.5),
+        -1px -1px 2px rgba(255, 255, 255, 0.2);
+    z-index: 1;
+}
+
+.apple:hover {
+    transform: scale(1.05);
+    box-shadow: 
+        inset -3px -3px 10px rgba(0, 0, 0, 0.3),
+        inset 3px 3px 10px rgba(255, 255, 255, 0.2),
+        0 6px 12px rgba(0, 0, 0, 0.3);
+}
+
+.apple.selected {
+    background: radial-gradient(circle at 35% 30%, #ffd93d, #ffb800, #ff8c00, #ff6b00);
+    border: 3px solid #fff700;
+    box-shadow: 
+        inset -3px -3px 10px rgba(0, 0, 0, 0.2),
+        inset 3px 3px 10px rgba(255, 255, 255, 0.3),
+        0 0 20px rgba(255, 215, 0, 0.8);
+    transform: scale(1.05);
+}
+
+.apple.removing {
+    animation: removeApple 0.5s ease-out forwards;
+}
+
+@keyframes removeApple {
+    0% {
+        transform: scale(1);
+        opacity: 1;
+    }
+    50% {
+        transform: scale(1.2) rotate(10deg);
+        opacity: 0.7;
+    }
+    100% {
+        transform: scale(0);
+        opacity: 0;
+    }
+}
+
+.apple.appearing {
+    animation: appearApple 0.4s ease-out;
+}
+
+@keyframes appearApple {
+    0% {
+        transform: scale(0);
+        opacity: 0;
+    }
+    50% {
+        transform: scale(1.1);
+    }
+    100% {
+        transform: scale(1);
+        opacity: 1;
+    }
+}
+
+@media (max-width: 768px) {
+    #game-container {
+        padding: 20px;
+    }
+    
+    #game-header {
+        flex-direction: column;
+        gap: 15px;
+    }
+    
+    .info-panel {
+        justify-content: center;
+        gap: 10px;
+    }
+    
+    .info-item {
+        min-width: 80px;
+        padding: 8px 12px;
+    }
+    
+    .info-value {
+        font-size: 20px;
+    }
+    
+    #game-grid {
+        gap: 6px;
+        padding: 10px;
+    }
+    
+    .apple-number {
+        font-size: 16px;
+    }
+}
+
+@media (max-width: 480px) {
+    #game-grid {
+        gap: 4px;
+        padding: 8px;
+    }
+    
+    .apple-number {
+        font-size: 14px;
+    }
+}

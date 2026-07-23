@@ -3,30 +3,81 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>사과 게임 - Apple Number Game</title>
-    <link rel="stylesheet" href="styles.css">
+    <title>skhx2222의 홈페이지</title>
+    <link rel="stylesheet" href="shared.css">
+    <style>
+        .site-header {
+            text-align: center;
+            margin-bottom: 48px;
+        }
+        .site-title {
+            font-size: 2.6rem;
+            font-weight: 800;
+            color: white;
+            text-shadow: 0 4px 12px rgba(0,0,0,0.2);
+            margin-bottom: 8px;
+        }
+        .site-subtitle {
+            font-size: 1rem;
+            color: rgba(255,255,255,0.75);
+        }
+        .main-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(260px, 1fr));
+            gap: 24px;
+        }
+        .main-card {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            background: rgba(255,255,255,0.95);
+            border-radius: 20px;
+            padding: 40px 24px 32px;
+            text-decoration: none;
+            box-shadow: 0 10px 35px rgba(0,0,0,0.18);
+            transition: transform 0.25s ease, box-shadow 0.25s ease;
+            text-align: center;
+        }
+        .main-card:hover {
+            transform: translateY(-8px);
+            box-shadow: 0 20px 50px rgba(0,0,0,0.28);
+        }
+        .main-card-icon {
+            font-size: 4rem;
+            margin-bottom: 20px;
+            line-height: 1;
+        }
+        .main-card-title {
+            font-size: 1.4rem;
+            font-weight: 700;
+            color: #333;
+            margin-bottom: 8px;
+        }
+        .main-card-desc {
+            font-size: 0.9rem;
+            color: #777;
+            line-height: 1.5;
+        }
+    </style>
 </head>
 <body>
-    <div id="game-container">
-        <div id="game-header">
-            <div class="info-panel">
-                <div id="selection-sum" class="info-item">
-                    <span class="info-label">선택 합계:</span>
-                    <span id="sum-value" class="info-value">0</span>
-                </div>
-                <div id="score-display" class="info-item">
-                    <span class="info-label">점수:</span>
-                    <span id="score-value" class="info-value">0</span>
-                </div>
-                <div id="moves-display" class="info-item">
-                    <span class="info-label">이동:</span>
-                    <span id="moves-value" class="info-value">0</span>
-                </div>
-            </div>
-            <button id="restart-button">🔄 다시 시작</button>
+    <div class="page-wrapper">
+        <header class="site-header">
+            <div class="site-title">✨ skhx2222</div>
+            <div class="site-subtitle">게임과 만화를 즐겨보세요</div>
+        </header>
+        <div class="main-grid">
+            <a href="games/" class="main-card">
+                <div class="main-card-icon">🎮</div>
+                <div class="main-card-title">게임</div>
+                <div class="main-card-desc">재미있는 미니게임 모음</div>
+            </a>
+            <a href="comics/" class="main-card">
+                <div class="main-card-icon">📚</div>
+                <div class="main-card-title">만화</div>
+                <div class="main-card-desc">직접 만든 웹툰 시리즈</div>
+            </a>
         </div>
-        <div id="game-grid"></div>
     </div>
-    <script src="game.js"></script>
 </body>
 </html>
